@@ -1,0 +1,31 @@
+Câu 1 & 4: Kiểm thử phần mềm (Testing) là gì? Để làm gì?
+
+Nó là gì? Testing đơn giản là "soi lỗi" phần mềm trước khi giao cho khách. Check xem nó có chạy đúng như quảng cáo không, có dễ hỏng không.
+Để làm gì? Mục tiêu chính là tìm bug, đảm bảo app chạy mượt, và cung cấp thông tin app đã đủ điều kiện để phát hành hay chưa.
+
+Câu 2: Test Plan (Kế hoạch kiểm thử) là gì? Lập ra để làm gì?
+
+Nó là gì? Test Plan là cái "bản đồ" cho team test. 
+Nó chỉ rõ: test cái gì, test như nào, ai test, và bao giờ xong.
+Để làm gì? Để cả team nhìn về một hướng, không ai lạc trôi. Cứ nhìn vào đó là biết việc mình cần làm, không phải hỏi đi hỏi lại. Rõ ràng, chuyên nghiệp.
+
+Câu 3 & 5: TEST CASE là gì? Sao phải dùng nó?
+
+Nó là gì? Test Case là một "kịch bản" test chi tiết. 
+Nó ghi rõ: từng bước làm, dùng data gì, và kết quả phải ra sao.
+Tại sao dùng? Để chắc kèo là không bỏ sót tính năng nào. Để ai trong team test cũng ra kết quả như nhau, và quan trọng là có bằng chứng để báo cáo "Pass" hay "Fail".
+
+Câu 6: Phân biệt Testing và Debugging?
+
+Testing (Kiểm thử): Là việc của Tester. Nhiệm vụ là TÌM LỖI.
+Debugging (Gỡ lỗi): Là việc của Developer. Nhiệm vụ là SỬA LỖI mà Tester đã tìm ra.
+Ví dụ ngắn gọn: Tester bấm nút thanh toán thấy app văng -> báo lỗi. Đó là Testing. Dev nhận báo cáo, mò vào code để sửa -> đó là Debugging. Một người phá, một người xây.
+
+Câu 7: Quy trình kiểm thử có mấy bước?
+
+Phân tích yêu cầu: Đọc xem khách muốn gì.
+Lên kế hoạch: Viết cái Test Plan.
+Viết Test Case: Tạo ra các kịch bản test.
+Dựng môi trường: Chuẩn bị máy móc, tài khoản để test.
+Chạy test: Thực hiện test, tìm lỗi.
+Báo cáo: Tổng kết và báo cáo kết quả.
