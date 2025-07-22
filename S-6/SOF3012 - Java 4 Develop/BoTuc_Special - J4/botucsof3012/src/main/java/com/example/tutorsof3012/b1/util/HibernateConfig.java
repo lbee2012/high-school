@@ -1,6 +1,6 @@
-package com.example.tutorsof3012.buoi1.util;
+package com.example.tutorsof3012.b1.util;
 
-import com.example.tutorsof3012.buoi1.model.SanPham;
+import com.example.tutorsof3012.b1.model.SanPham;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;

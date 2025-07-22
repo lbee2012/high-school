@@ -1,7 +1,7 @@
-package com.example.tutorsof3012.buoi1.repository;
+package com.example.tutorsof3012.b1.repository;
 
-import com.example.tutorsof3012.buoi1.model.SanPham;
-import com.example.tutorsof3012.buoi1.util.HibernateConfig;
+import com.example.tutorsof3012.b1.model.SanPham;
+import com.example.tutorsof3012.b1.util.HibernateConfig;
 import org.hibernate.Session;
 
 import java.util.List;

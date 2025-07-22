@@ -1,7 +1,7 @@
-package com.example.tutorsof3012.buoi1.controller;
+package com.example.tutorsof3012.b1.controller;
 
-import com.example.tutorsof3012.buoi1.model.SanPham;
-import com.example.tutorsof3012.buoi1.repository.SanPhamRepository;
+import com.example.tutorsof3012.b1.model.SanPham;
+import com.example.tutorsof3012.b1.repository.SanPhamRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,12 +11,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "sanPhamController", value = {
-        "/buoi1/index", //GET
-        "/buoi1/detail", //GET
-        "/buoi1/add", //POST
-        "/buoi1/view-update", //GET
-        "/buoi1/update", //POST
-        "/buoi1/delete", //GET
+        "/b1/index", //GET
+        "/b1/detail", //GET
+        "/b1/add", //POST
+        "/b1/view-update", //GET
+        "/b1/update", //POST
+        "/b1/delete", //GET
 })
 public class SanPhamController extends HttpServlet {
     SanPhamRepository spRepo = new SanPhamRepository();
@@ -38,24 +38,24 @@ public class SanPhamController extends HttpServlet {
     private void deleteSP(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         spRepo.delete(id);
-        resp.sendRedirect("buoi1/index");
+        resp.sendRedirect("b1/index");
     }
 
     private void viewUpdateSP(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         req.setAttribute("sp", spRepo.getOne(id));
-        req.getRequestDispatcher("/buoi1/viewUpdate.jsp").forward(req, resp);
+        req.getRequestDispatcher("/b1/viewUpdate.jsp").forward(req, resp);
     }
 
     private void detailSP(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         req.setAttribute("sp", spRepo.getOne(id));
-        req.getRequestDispatcher("/buoi1/detail.jsp").forward(req, resp);
+        req.getRequestDispatcher("/b1/detail.jsp").forward(req, resp);
     }
 
     private void indexSP(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("listAll", spRepo.getAll());
-        req.getRequestDispatcher("/buoi1/index.jsp").forward(req, resp);
+        req.getRequestDispatcher("/b1/index.jsp").forward(req, resp);
     }
 
     @Override
@@ -68,7 +68,17 @@ public class SanPhamController extends HttpServlet {
         }
      }
 
-    private void updateSP(HttpServletRequest req, HttpServletResponse resp) {
+    private void updateSP(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Integer id = Integer.valueOf(req.getParameter("id"));
+        String tenSanPham = req.getParameter("tenSanPham");
+        String nhaSanXuat = req.getParameter("nhaSanXuat");
+        Float gia = Float.valueOf(req.getParameter("gia"));
+        Integer soLuong = Integer.valueOf(req.getParameter("soLuong"));
+        Boolean conHang = Boolean.valueOf(req.getParameter("conHang"));
+
+        SanPham sp = new SanPham(id, tenSanPham, nhaSanXuat, gia, soLuong, conHang);
+        spRepo.update(sp);
+        resp.sendRedirect("/b1/index");
     }
 
     private void addSP(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -80,6 +90,6 @@ public class SanPhamController extends HttpServlet {
 
         SanPham sp = new SanPham(null, tenSanPham, nhaSanXuat, gia, soLuong, conHang);
         spRepo.add(sp);
-        resp.sendRedirect("/buoi1/index");
+        resp.sendRedirect("/b1/index");
     }
 }

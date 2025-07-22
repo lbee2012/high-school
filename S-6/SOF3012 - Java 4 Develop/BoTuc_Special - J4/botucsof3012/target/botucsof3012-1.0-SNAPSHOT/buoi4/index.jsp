@@ -43,7 +43,7 @@
                     <td>${mt.boNho}</td>
                     <td>
                         <a href="/buoi4/detail?id=${mt.id}">Detail</a>
-                        <a href="/buoi4/view-update?id=${mt.id}">View Update</a>
+                        <a href="/buoi4/view-update?id=${mt.id}">Update</a>
                         <a href="/buoi4/delete?id=${mt.id}">Delete</a>
                     </td>
                 </tr>
