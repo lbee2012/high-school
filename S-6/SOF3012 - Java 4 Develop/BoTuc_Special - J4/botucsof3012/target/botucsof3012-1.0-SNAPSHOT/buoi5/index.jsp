@@ -17,7 +17,25 @@
     </style>
 </head>
 <body>
-    <h1>Database</h1>
+    <h3>Form add Phong:</h3>
+    <br>
+    <form action="/buoi5/add" method="post">
+        Ten phong: <input type="text" name="tenPhong"><br>
+        Gia: <input type="text" name="gia"><br>
+        Trang thai:
+        Con <input type="radio" name="conTrong" value="true">
+        Het <input type="radio" name="conTrong" value="false"><br>
+        Khach san:
+        <select name="khachSan">
+            <c:forEach items="${listKhachSan}" var="khachSan">
+                <option value="${khachSan.id}" label="${khachSan.tenKhachSan}"></option>
+            </c:forEach>
+        </select>
+        <br>
+        <button>Add</button>
+    </form>
+    <br>
+    <h1>Database:</h1>
     <table>
         <thead>
             <tr>
@@ -31,14 +49,18 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${listAll}" var="phong">
+            <c:forEach items="${listPhong}" var="phong">
                 <tr>
                     <td>${phong.id}</td>
                     <td>${phong.tenPhong}</td>
                     <td>${phong.gia}</td>
-                    <td>${phong.conTrong == "true" ? "Trong" : "Con"}</td>
+                    <td>${phong.conTrong == "true" ? "Con" : "Het"}</td>
                     <td>${phong.khachSan.tenKhachSan}</td>
                     <td>${phong.khachSan.diaChi}</td>
+                    <td>
+                        <a href="/buoi5/view-update?id=${phong.id}">view update</a>
+                        <a href="/buoi5/delete?id=${phong.id}">delete</a>
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>

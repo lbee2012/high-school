@@ -32,7 +32,7 @@ public class SachRepository {
         }
     }
 
-    public void udpate(Sach s) {
+    public void update(Sach s) {
         try {
             session.getTransaction().begin();
             session.merge(s);

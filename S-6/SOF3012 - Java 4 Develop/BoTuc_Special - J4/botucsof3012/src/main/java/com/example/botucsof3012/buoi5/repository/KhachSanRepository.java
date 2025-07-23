@@ -15,7 +15,7 @@ public class KhachSanRepository {
 
     // load combobox
     public List<KhachSan> getAllKhachSan() {
-        return session.createQuery("FROM Phong").list();
+        return session.createQuery("FROM KhachSan").list();
     }
 
     // add, update Phong
