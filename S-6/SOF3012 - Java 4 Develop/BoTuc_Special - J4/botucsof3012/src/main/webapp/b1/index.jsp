@@ -10,17 +10,25 @@
 <html>
 <head>
     <title>Table: san_pham</title>
+    <style>
+        th, td {
+            border: 1px solid;
+            padding: 4px;
+        }
+    </style>
 </head>
 <body>
     <h3>From add SP:</h3>
-    <form action="/b1/add">
+    <form action="/b1/add" method="post">
         Ten san pham: <input type="text" name="tenSanPham"><br>
         Nha san xuat: <input type="text" name="nhaSanXuat"><br>
         Gia: <input type="text" name="gia"><br>
         So luong: <input type="text" name="soLuong"><br>
-        Con hang: <input type="boolean" name="conHang"><br>
+        Trang thai:
+        Con hang <input type="radio" name="conHang" value="true">
+        Het hang <input type="radio" name="conHang" value="false"><br>
         <br>
-        <button>Add</button>
+        <button>Submit</button>
     </form>
     <br>
     <h1>Thong tin San pham:</h1>
@@ -32,7 +40,7 @@
                 <td>Nha san xuat</td>
                 <td>Gia</td>
                 <td>So luong</td>
-                <td>Con hang</td>
+                <td>Trang thai</td>
                 <td>Hanh dong</td>
             </tr>
         </thead>
@@ -44,7 +52,11 @@
                     <td>${sp.nhaSanXuat}</td>
                     <td>${sp.gia}</td>
                     <td>${sp.soLuong}</td>
-                    <td>${sp.conHang}</td>
+                    <td>${sp.conHang == "true" ? "Con hang" : "Het hang"}</td>
+                    <td>
+                        <a href="/b1/view-update?id=${sp.id}">Update</a>
+                        <a href="/b1/delete?id=${sp.id}">Delete</a>
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>

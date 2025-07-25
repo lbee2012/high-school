@@ -12,7 +12,6 @@ import java.io.IOException;
 
 @WebServlet(name = "sanPhamController", value = {
         "/b1/index", //GET
-        "/b1/detail", //GET
         "/b1/add", //POST
         "/b1/view-update", //GET
         "/b1/update", //POST
@@ -26,8 +25,6 @@ public class SanPhamController extends HttpServlet {
         String uri = req.getRequestURI();
         if (uri.contains("index")) {
             indexSP(req, resp);
-        } else if (uri.contains("detailSP")) {
-            detailSP(req, resp);
         } else if (uri.contains("view-update")) {
             viewUpdateSP(req, resp);
         } else if (uri.contains("delete")) {
@@ -38,19 +35,13 @@ public class SanPhamController extends HttpServlet {
     private void deleteSP(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         spRepo.delete(id);
-        resp.sendRedirect("b1/index");
+        resp.sendRedirect("/b1/index");
     }
 
     private void viewUpdateSP(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         req.setAttribute("sp", spRepo.getOne(id));
         req.getRequestDispatcher("/b1/viewUpdate.jsp").forward(req, resp);
-    }
-
-    private void detailSP(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer id = Integer.valueOf(req.getParameter("id"));
-        req.setAttribute("sp", spRepo.getOne(id));
-        req.getRequestDispatcher("/b1/detail.jsp").forward(req, resp);
     }
 
     private void indexSP(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

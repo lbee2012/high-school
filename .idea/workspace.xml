@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8d696826-3ae5-423a-bac8-e19058c1b4e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/S-2/ITI101 C, C++/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/S-2/ITI101 C, C++/desktop.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/assets/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/assets/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/Bai3.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/Bai4.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/Hello.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/TheWelcome.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/WelcomeItem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/icons/IconCommunity.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/icons/IconDocumentation.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/icons/IconEcosystem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/icons/IconSupport.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/components/icons/IconTooling.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/S-6/SOF308 - Backend Develop/Code/Lab4/vite.config.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="30IgYq8dLYE1EKhZqOWJqJOryiM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/S-6/SOF3012 - Java 4 Develop/BoTuc_Special - J4/botucsof3012" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8d696826-3ae5-423a-bac8-e19058c1b4e7" name="Default Changelist" comment="" />
+      <created>1753320551770</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753320551770</updated>
+      <workItem from="1753320554544" duration="25000" />
+    </task>
+    <servers />
+  </component>
+</project>

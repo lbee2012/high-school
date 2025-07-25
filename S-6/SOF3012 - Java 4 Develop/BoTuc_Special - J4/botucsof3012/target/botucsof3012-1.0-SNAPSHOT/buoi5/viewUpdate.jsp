@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lbee
@@ -16,14 +17,14 @@
     <form action="/buoi5/update" method="post">
         ID: <input type="text" name="id" value="${phong.id}"><br>
         Ten phong: <input type="text" name="tenPhong" value="${phong.tenPhong}"><br>
-        Gia: <input type="text" name="gia" value="${phong.gia}><br>
+        Gia: <input type="text" name="gia" value="${phong.gia}"><br>
         Trang thai:
         Con <input type="radio" name="conTrong" value="true" ${phong.conTrong == "true" ? "checked" : ""}>
-        Het <input type="radio" name="conTrong" value="false" ${phong.conTrong == "true" ? "false" : ""}><br>
+        Het <input type="radio" name="conTrong" value="false" ${phong.conTrong == "false" ? "checked" : ""}><br>
         Khach san:
         <select name="khachSan">
             <c:forEach items="${listKhachSan}" var="khachSan">
-                <option value="${khachSan.id}" label="${khachSan.tenKhachSan}" ${phong.khachSan.id == khachSan.id ? "checked" : ""}></option>
+                <option value="${khachSan.id}" label="${khachSan.tenKhachSan}" ${phong.khachSan.id == khachSan.id ? "selected" : ""}></option>
             </c:forEach>
         </select>
         <br>

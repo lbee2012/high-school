@@ -11,8 +11,9 @@
 <head>
     <title>Table: phong - khach_san</title>
     <style>
-        table, th, td {
+        th, td {
             border: 1px solid;
+            padding: 4px;
         }
     </style>
 </head>

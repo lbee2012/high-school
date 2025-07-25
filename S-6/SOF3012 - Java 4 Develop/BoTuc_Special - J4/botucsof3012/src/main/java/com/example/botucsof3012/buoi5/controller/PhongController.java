@@ -35,14 +35,17 @@ public class PhongController extends HttpServlet {
         }
     }
 
-    private void deleteP(HttpServletRequest req, HttpServletResponse resp) {
+    private void deleteP(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Integer id = Integer.valueOf(req.getParameter("id"));
+        pRepo.deletePhong(id);
+        resp.sendRedirect("/buoi5/index");
     }
 
     private void viewUpdateP(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         req.setAttribute("phong", pRepo.getOnePhong(id));
         req.setAttribute("listKhachSan", ksRepo.getAllKhachSan());
-        req.getRequestDispatcher("/buoi5/index.jsp").forward(req, resp);
+        req.getRequestDispatcher("/buoi5/viewUpdate.jsp").forward(req, resp);
     }
 
     private void indexP(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -55,14 +58,26 @@ public class PhongController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String uri = req.getRequestURI();
         if (uri.contains("add")) {
-            System.out.println("addP(req, resp);");
             addP(req, resp);
         } else if (uri.contains("update")) {
             updateP(req, resp);
         }
     }
 
-    private void updateP(HttpServletRequest req, HttpServletResponse resp) {
+    private void updateP(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Integer id = Integer.valueOf(req.getParameter("id"));
+        String tenPhong = req.getParameter("tenPhong");
+        Integer gia = Integer.valueOf(req.getParameter("gia"));
+        Boolean conTrong = Boolean.valueOf(req.getParameter("conTrong"));
+
+        //Tim thuc the KhachSan qua ID va gan vao bien ks
+        Integer khachSanId = Integer.valueOf(req.getParameter("khachSan"));
+        KhachSan ks = ksRepo.getOneKhachSan(khachSanId);
+
+        //Tao thuc the Phong voi cac thong tin KhachSan duoc tim thay qua 'ks'
+        Phong p = new Phong(id, tenPhong, gia, conTrong, ks);
+        pRepo.updatePhong(p);
+        resp.sendRedirect("/buoi5/index");
     }
 
     private void addP(HttpServletRequest req, HttpServletResponse resp) throws IOException {
