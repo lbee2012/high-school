@@ -1,18 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: lbee
-  Date: 7/30/2025
-  Time: 3:46 PM
+  Date: 8/1/2025
+  Time: 3:37 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>403 Forbidden</title>
 </head>
 <body>
-    Request Scope: ${name} <br>
-    Session Scope: ${sessionScope.role} <br>
-    AS
+    <h1>Ban khong co quyen truy cap vao trang nay</h1>
 </body>
 </html>
