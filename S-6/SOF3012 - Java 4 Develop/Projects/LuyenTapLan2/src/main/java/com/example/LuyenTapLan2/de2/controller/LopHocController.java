@@ -1,5 +1,7 @@
 package com.example.LuyenTapLan2.de2.controller;
 
+import com.example.LuyenTapLan2.de2.model.GiaoVien;
+import com.example.LuyenTapLan2.de2.model.LopHoc;
 import com.example.LuyenTapLan2.de2.repository.GiaoVienRepo;
 import com.example.LuyenTapLan2.de2.repository.LopHocRepo;
 import jakarta.servlet.ServletException;
@@ -47,14 +49,30 @@ public class LopHocController extends HttpServlet {
     }
 
     private void phanTrangLH(HttpServletRequest req, HttpServletResponse resp) {
+        int page = 0;
+        int pageSize = 5;
+        String pageParam = req.getParameter("page");
+        if (pageParam != null & !pageParam.isEmpty()) {
+            page = Integer.valueOf(pageParam);
+        }
+        req.setAttribute("page", page);
+
+        req.setAttribute("listLH", lhr.pageBy5(page, pageSize));
+        req.setAttribute("listGV", gvr.getAll());
+        req.getRequestDispatcher("/de2/hien-thi.jsp");
     }
 
-    private void sapXepLH(HttpServletRequest req, HttpServletResponse resp) {
+    private void sapXepLH(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("listLH", lhr.sortBySoLuongSV());
+        req.setAttribute("listGV", gvr.getAll());
+        req.getRequestDispatcher("/de2/hien-thi.jsp").forward(req, resp);
     }
 
-    private void timKiemLH(HttpServletRequest req, HttpServletResponse resp) {
+    private void timKiemLH(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String tenLop = req.getParameter("tenLop");
         req.setAttribute("listLH", lhr.searchByTen(tenLop));
+        req.setAttribute("listGV", gvr.getAll());
+        req.getRequestDispatcher("/de2/hien-thi.jsp").forward(req, resp);
     }
 
     private void xoaLH(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -65,14 +83,14 @@ public class LopHocController extends HttpServlet {
 
     private void viewSuaLH(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
-        req.setAttribute("oneLH", lhr.getOne(id));
+        req.setAttribute("lh", lhr.getOne(id));
         req.setAttribute("listGV", gvr.getAll());
         req.getRequestDispatcher("/de2/view-sua.jsp").forward(req, resp);
     }
 
     private void chiTietLH(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
-        req.setAttribute("oneLH", lhr.getOne(id));
+        req.setAttribute("lh", lhr.getOne(id));
         req.setAttribute("listGV", gvr.getAll());
         req.getRequestDispatcher("/de2/chi-tiet.jsp").forward(req, resp);
     }
@@ -93,9 +111,32 @@ public class LopHocController extends HttpServlet {
         }
     }
 
-    private void suaLH(HttpServletRequest req, HttpServletResponse resp) {
+    private void suaLH(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Integer id = Integer.valueOf(req.getParameter("id"));
+        String tenLop = req.getParameter("tenLop");
+        Integer soLuongSV = Integer.valueOf(req.getParameter("soLuongSV"));
+        Integer thoiLuong = Integer.valueOf(req.getParameter("thoiLuong"));
+
+        Integer idGiaoVien = Integer.valueOf(req.getParameter("gv"));
+        GiaoVien gv = gvr.getOne(idGiaoVien);
+
+        LopHoc lh = new LopHoc(id, tenLop, soLuongSV, thoiLuong, gv);
+        lhr.update(lh);
+
+        resp.sendRedirect("/de2/hien-thi");
     }
 
-    private void themLH(HttpServletRequest req, HttpServletResponse resp) {
+    private void themLH(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String tenLop = req.getParameter("tenLop");
+        Integer soLuongSV = Integer.valueOf(req.getParameter("soLuongSV"));
+        Integer thoiLuong = Integer.valueOf(req.getParameter("thoiLuong"));
+
+        Integer idGiaoVien = Integer.valueOf(req.getParameter("gv"));
+        GiaoVien gv = gvr.getOne(idGiaoVien);
+
+        LopHoc lh = new LopHoc(null, tenLop, soLuongSV, thoiLuong, gv);
+        lhr.add(lh);
+
+        resp.sendRedirect("/de2/hien-thi");
     }
 }

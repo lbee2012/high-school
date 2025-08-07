@@ -1,31 +1,31 @@
-package com.example.LuyenTapLan2.de2.repository;
+package com.example.LuyenTapLan2.de3.repository;
 
-import com.example.LuyenTapLan2.de2.model.LopHoc;
-import com.example.LuyenTapLan2.de2.util.HibernateConfig;
+import com.example.LuyenTapLan2.de3.model.Phim;
+import com.example.LuyenTapLan2.de3.util.HibernateConfig;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class LopHocRepo {
+public class PhimRepository {
     private Session s = null;
 
-    public LopHocRepo() {
+    public PhimRepository() {
         s = HibernateConfig.getFACTORY().openSession();
     }
 
-    public List<LopHoc> getAll() {
-        return s.createQuery("FROM LopHoc ").list();
+    public List<Phim> getAll() {
+        return s.createQuery("FROM Phim ").list();
     }
 
-    public LopHoc getOne(Integer id) {
-        return s.find(LopHoc.class, id);
+    public Phim getOne(Integer id) {
+        return s.find(Phim.class, id);
     }
 
-    public void add(LopHoc lh) {
+    public void add(Phim p) {
         try {
             s.getTransaction().begin();
-            s.save(lh);
+            s.save(p);
             s.getTransaction().commit();
         } catch (Exception e) {
             s.getTransaction().rollback();
@@ -33,10 +33,10 @@ public class LopHocRepo {
         }
     }
 
-    public void update(LopHoc lh) {
+    public void update(Phim p) {
         try {
             s.getTransaction().begin();
-            s.merge(lh);
+            s.merge(p);
             s.getTransaction().commit();
         } catch (Exception e) {
             s.getTransaction().rollback();
@@ -55,21 +55,21 @@ public class LopHocRepo {
         }
     }
 
-    public List<LopHoc> searchByTen(String tenLop) {
-        Query q = s.createQuery("FROM LopHoc lh WHERE tenLop LIKE :tenLop");
-        q.setParameter("tenLop", "%" + tenLop + "%");
+    public List<Phim> searchByTen(String tenPhim) {
+        Query q = s.createQuery("FROM Phim p WHERE tenPhim LIKE :tenPhim");
+        q.setParameter("tenPhim", "%" + tenPhim + "%");
         return q.list();
     }
 
-    public List<LopHoc> sortBySoLuongSV() {
-        Query q = s.createQuery("FROM LopHoc lh ORDER BY lh.soLuongSV DESC");
+    public List<Phim> sortByNamPhatHanh() {
+        Query q = s.createQuery("FROM Phim p ORDER BY p.namPhatHanh DESC");
         return q.list();
     }
 
-    public List<LopHoc> pageBy5(int page, int pageSize) {
-        Query q = s.createQuery("FROM LopHoc ");
-        q.setFirstResult(pageSize);
-        q.setMaxResults(pageSize * page);
+    public List<Phim> pageBy3(int page, int pageSize) {
+        Query q = s.createQuery("FROM Phim ");
+        q.setFirstResult(page * pageSize);
+        q.setMaxResults(pageSize);
         return q.list();
     }
 }
