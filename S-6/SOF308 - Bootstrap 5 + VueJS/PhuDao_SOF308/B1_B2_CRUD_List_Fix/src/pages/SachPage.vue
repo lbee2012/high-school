@@ -1,10 +1,10 @@
 <template>
     <h1>Quan ly Sach</h1>
-    <FormSachComponent />
+    <FormSachComponent v-model:sach="sach"/>
     <button type="button" class="btn btn-primary" @click="addSach()">Add</button>
     <button type="button" class="btn btn-success" @click="updateSach()">Update</button>
 
-    <table class="table">
+    <table class="table container">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -45,7 +45,43 @@ const listSach = ref ([
     { ten: 's5', loai: 'l5', tacGia: 'tg5', gia: 5, id: 5},
 ])
 
+const idUpdate = ref(-1);
+const sach = ref({
+    ten: '',
+    loai: '',
+    tacGia: '',
+    gia: 0,
+});
 
+function deleteSach(index) {
+    listSach.value.splice(index, 1);
+};
+function detailSach(item) {
+    sach.value = { ...item };
+    idUpdate.value = item.id;
+};
+
+function resetSach() {
+    sach.value = {
+        ten: '',
+        loai: '',
+        tacGia: '',
+        gia: 0,
+    };
+};
+
+function addSach() {
+    listSach.value.push({
+        id: listSach.value.length + 1,
+        ...sach.value,
+    });
+    resetSach();
+};
+function updateSach() {
+    listSach.value[idUpdate.value] = { ...sach.value };
+    resetSach();
+    idUpdate.value = -1;
+};
 </script>
 
 <style scoped>

@@ -1,5 +1,7 @@
 package com.example.LuyenTapLan3;
 
+import com.example.LuyenTapLan3.de1.model.ChucVu;
+import com.example.LuyenTapLan3.de1.model.NhanVien;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -22,8 +24,8 @@ public class HibernateConfig {
         properties.put(Environment.PASS, "123");
         properties.put(Environment.SHOW_SQL, "true");
 
-//        conf.addAnnotatedClass(CuaHang.class);
-//        conf.addAnnotatedClass(TruyenTranh.class);
+        conf.addAnnotatedClass(ChucVu.class);
+        conf.addAnnotatedClass(NhanVien.class);
 
         conf.setProperties(properties);
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
