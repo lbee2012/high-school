@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Update Form for BS</h3>
+<form action="/buoi6/update" method="post">
+    ID: <input type="text" name="id" th:value="${bs.id}"><br>
+    Ten: <input type="text" name="ten" th:value="${bs.ten}"><br>
+    Dia chi: <input type="text" name="diaChi" th:value="${bs.diaChi}"><br>
+    Luong: <input type="text" name="luong" th:value="${bs.luong}"><br>
+    Tuoi: <input type="text" name="tuoi" th:value="${bs.tuoi}"><br>
+    Gioi tinh
+    Nam <input type="radio" name="gioiTinh" value="false" th:checked="${bs.gioiTinh}">
+    Nu <input type="radio" name="gioiTinh" value="true" th:checked="${bs.gioiTinh}">
+    <br>
+    <button>Submit</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Sua danh muc:
+<form action="/danh-muc/sua" method="post">
+    Id: <input type="text" name="id" th:value="${danhMuc.id}"> <br>
+    Ten: <input type="text" name="ten" th:value="${danhMuc.ten}"> <br>
+    Cap do: <input type="text" name="capDo" th:value="${danhMuc.capDo}"> <br>
+    He so: <input type="text" name="heSo" th:value="${danhMuc.heSo}"> <br>
+    <button>Submit</button>
+</form>
+</body>
+</html>

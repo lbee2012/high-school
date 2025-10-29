@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Form add</h3>
+    <form action="/prac2/add" method="post">
+        ID: <input type="text" name="id"><br>
+        Ten: <input type="text" name="ten"><br>
+        Loai
+        <select name="loai">
+            <option th:each="sp: ${spList}" th:value="${sp.loai}" th:text="${sp.loai}"></option>
+        </select>
+        <br>
+        So luong: <input type="text" name="soLuong"><br>
+        Con hang:
+        Con <input type="radio" name="conHang" value="true">
+        Het <input type="radio" name="conHang" value="false">
+        <br>
+        <button>Submit</button>
+    </form>
+    <h3>Table</h3>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Ten</th>
+            <th>Loai</th>
+            <th>So luong</th>
+            <th>Con hang</th>
+            <th>Hanh dong</th>
+        </thead>
+        <tbody>
+            <th:block th:each="sp : ${spList}">
+                <tr th:object="${sp}">
+                    <td th:text="*{id}"></td>
+                    <td th:text="*{ten}"></td>
+                    <td th:text="*{loai}"></td>
+                    <td th:text="*{soLuong}"></td>
+                    <td th:text="*{conHang}"></td>
+                    <td>
+                        <a th:href="@{|/prac2/view-update/*{id}|}">update</a>
+                        <a th:href="@{|/prac2/delete?id=*{id}|}">delete</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>

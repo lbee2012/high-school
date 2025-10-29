@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>index dh</h3>
+    <table>
+        <thead>
+        <th>ID</th>
+        <th>Ma don</th>
+        <th>Ngay dat</th>
+        <th>Tong tien</th>
+        <th>Khach hang</th>
+        <th>Hanh dong</th>
+        </thead>
+        <tbody>
+        <th:block th:each="dh: ${page.getContent()}">
+            <tr th:object="${dh}">
+                <td th:text="*{id}"></td>
+                <td th:text="*{maDon}"></td>
+                <td th:text="*{ngayDat}"></td>
+                <td th:text="*{tongTien}"></td>
+                <td th:text="*{kh.ten}"></td>
+                <td>
+                    <a th:href="@{|/de1/don-hang/update/*{id}|}">update</a>
+                    <a th:href="@{|/de1/don-hang/delete?id=*{id}|}">delete</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</body>
+</html>

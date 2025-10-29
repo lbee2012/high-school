@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>add</h3>
+    <form action="/ve/add" method="post" th:object="${v}">
+        Khach hang: <input type="text" th:field="*{khachHang}"><i th:errors="*{khachHang}"></i><br>
+        So luong: <input type="text" th:field="*{soLuong}"><i th:errors="*{soLuong}"></i><br>
+        Gia ve: <input type="text" th:field="*{giaVe}"><i th:errors="*{giaVe}"></i><br>
+        Ngay mua: <input type="date" th:field="*{ngayMua}"><i th:errors="*{ngayMua}"></i><br>
+        Su kien:
+        <select th:field="*{sk}">
+            <option value="">select an option</option>
+            <th:block th:each="sk: ${skList}">
+                <option th:value="${sk.id}" th:text="${sk.tenSuKien}"></option>
+            </th:block>
+        </select>
+        <i th:errors="*{sk}"></i><br>
+        <br><button>submit</button>
+    </form>
+    <h3>index</h3>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Khach hang</th>
+            <th>So luong</th>
+            <th>Gia ve</th>
+            <th>Ngay mua</th>
+            <th>Su kien</th>
+            <th>Hanh dong</th>
+        </thead>
+        <tbody>
+            <th:block th:each="v: ${vList}">
+                <tr th:object="${v}">
+                    <td th:text="*{id}"></td>
+                    <td th:text="*{khachHang}"></td>
+                    <td th:text="*{soLuong}"></td>
+                    <td th:text="*{giaVe}"></td>
+                    <td th:text="*{ngayMua}"></td>
+                    <td th:text="*{sk.tenSuKien}"></td>
+                    <td>
+                        <a th:href="@{|/ve/delete?id=*{id}|}">delete</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+    <h3>page</h3>
+    <a th:href="@{|/ve/page|}">page here</a>
+</body>
+</html>

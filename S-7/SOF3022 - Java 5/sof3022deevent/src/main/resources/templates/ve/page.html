@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>index</h3>
+    <table>
+        <thead>
+        <th>ID</th>
+        <th>Khach hang</th>
+        <th>So luong</th>
+        <th>Gia ve</th>
+        <th>Ngay mua</th>
+        <th>Su kien</th>
+        <th>Hanh dong</th>
+        </thead>
+        <tbody>
+        <th:block th:each="v: ${page.getContent()}">
+            <tr th:object="${v}">
+                <td th:text="*{id}"></td>
+                <td th:text="*{khachHang}"></td>
+                <td th:text="*{soLuong}"></td>
+                <td th:text="*{giaVe}"></td>
+                <td th:text="*{ngayMua}"></td>
+                <td th:text="*{sk.tenSuKien}"></td>
+                <td>
+                    <a th:href="@{|/ve/delete?id=*{id}|}">delete</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</body>
+</html>

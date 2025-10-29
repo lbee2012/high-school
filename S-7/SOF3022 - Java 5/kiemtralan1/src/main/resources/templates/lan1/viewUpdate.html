@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>update</h3>
+    <form action="/lan1/update" method="post">
+        ID: <input type="text" name="id" th:value="${mt.id}"><br>
+        Serial: <input type="text" name="serial" th:value="${mt.serial}"><br>
+        Gia: <input type="text" name="gia" th:value="${mt.gia}"><br>
+        Nam: <input type="text" name="nam" th:value="${mt.nam}"><br>
+        Ten: <input type="text" name="ten" th:value="${mt.ten}"><br>
+        <button>submit</button>
+    </form>
+</body>
+</html>

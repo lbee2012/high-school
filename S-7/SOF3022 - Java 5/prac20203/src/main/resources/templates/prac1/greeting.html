@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Xin chao <span th:text="${username}"></span></h3>
+<p>List of enrolled courses</p>
+<ul th:each="c: ${courses}">
+    <li>ID: <span th:text="${c.id}"></span></li>
+    <li>Name: <span th:text="${c.name}"></span></li>
+    <li>Topic: <span th:text="${c.topic}"></span></li>
+    <li>Coin: <span th:text="${c.coin}"></span></li>
+</ul>
+
+<p th:text="${hello}">Xao chin</p>
+</body>
+</html>

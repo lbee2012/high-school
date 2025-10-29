@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>add kh</h3>
+    <form action="/de1/khach-hang/add" method="post">
+        Ten: <input type="text" name="ten"><br>
+        SDT: <input type="text" name="sdt"><br>
+        Dia chi: <input type="text" name="diaChi"><br>
+        <br><button>Submit</button>
+    </form>
+    <h3>index kh</h3>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Ten</th>
+            <th>SDT</th>
+            <th>Dia chi</th>
+            <th>Hanh dong</th>
+        </thead>
+        <tbody>
+            <th:block th:each="kh: ${khList}">
+                <tr th:object="${kh}">
+                    <td th:text="*{id}"></td>
+                    <td th:text="*{ten}"></td>
+                    <td th:text="*{sdt}"></td>
+                    <td th:text="*{diaChi}"></td>
+                    <td>
+                        <a th:href="@{|/de1/khach-hang/update/*{id}|}">update</a>
+                        <a th:href="@{|/de1/khach-hang/delete?id=*{id}|}">delete</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>

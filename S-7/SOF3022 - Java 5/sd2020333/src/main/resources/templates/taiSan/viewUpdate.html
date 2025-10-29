@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>update ts</h3>
+    <form action="/tai-san/update" method="post">
+        Id: <input type="text" name="id" th:value="${ts.id}"><br>
+        Ten: <input type="text" name="ten" th:value="${ts.ten}"><br>
+        Nam san xuat: <input type="text" name="namSanXuat" th:value="${ts.namSanXuat}"><br>
+        Gia: <input type="text" name="gia" th:value="${ts.gia}"><br>
+        <select name="nv">
+            <th:block th:each="nv : ${nvList}">
+                <option th:value="${nv.id}" th:text="${nv.ten}" th:selected="${nv.id == ts.nv.id}"></option>
+            </th:block>
+        </select>
+        <br>
+        <button>submit</button>
+    </form>
+</body>
+</html>

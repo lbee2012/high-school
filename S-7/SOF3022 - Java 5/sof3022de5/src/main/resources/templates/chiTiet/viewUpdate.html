@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>update</h3>
+    <form action="/chi-tiet/update" method="post" th:object="${ct}">
+        Ten sp: <input type="text" th:field="*{tenSanPham}" th:value="${ct.tenSanPham}"><i th:errors="*{tenSanPham}"></i><br>
+        So luong: <input type="text" th:field="*{soLuong}" th:value="${ct.soLuong}"><i th:errors="*{soLuong}"></i><br>
+        Gia nhap: <input type="text" th:field="*{giaNhap}" th:value="${ct.giaNhap}"><i th:errors="*{giaNhap}"></i><br>
+        Ngay san xuat: <input type="text" th:field="*{ngaySanXuat}" th:value="${ct.ngaySanXuat}"><i th:errors="*{ngaySanXuat}"></i><br>
+        Phieu nhap:
+        <select th:field="*{pn}">
+            <option value="">select an option</option>
+            <th:block th:each="pn: ${pnList}">
+                <option th:value="${pn.id}" th:text="${pn.nhaCungCap}" th:selected="${pn.id == ct.pn.id}"></option>
+            </th:block>
+        </select>
+        <i th:errors="*{pn}"></i><br>
+        <br><button>submit</button>
+    </form>
+</body>
+</html>

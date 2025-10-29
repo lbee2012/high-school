@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>update</h3>
+    <form action="/don-hang/update" method="post" th:object="${dh}">
+        ID: <input type="text" th:field="*{id}" th:value="*{id}"><br>
+        Khach hang: <input type="text" th:field="*{tenKhachHang}" th:value="*{tenKhachHang}"><i th:errors="*{tenKhachHang}"></i><br>
+        So luong dat: <input type="text" th:field="*{soLuongDat}" th:value="*{soLuongDat}"><i th:errors="*{soLuongDat}"></i><br>
+        Trang thai:
+        Con hang <input type="radio" th:field="*{trangThai}" value="true" th:checked="*{trangThai}">
+        Het hang <input type="radio" th:field="*{trangThai}" value="false" th:checked="*{!trangThai}">
+        <i th:errors="*{trangThai}"></i><br>
+        San pham:
+        <select th:field="*{sp}">
+            <option value="">select an option</option>
+            <th:block th:each="sp: ${spList}">
+                <option th:value="${sp.id}" th:text="${sp.tenSanPham}" th:selected="${sp.id == dh.sp.id}"></option>
+            </th:block>
+        </select>
+        <i th:errors="*{sp}"></i><br>
+        <br><button>submit</button>
+    </form>
+</body>
+</html>

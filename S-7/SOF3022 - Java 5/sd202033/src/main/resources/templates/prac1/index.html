@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Form add</h3>
+    <form action="/prac1/add" method="post">
+        ID: <input type="text" name="id"><br>
+        Ten: <input type="text" name="ten"><br>
+        Tuoi: <input type="text" name="tuoi"><br>
+        Gioi tinh:
+        Nam <input type="radio" name="gioiTinh" value="true">
+        Nu <input type="radio" name="gioiTinh" value="false">
+        <br>
+        Lop:
+        <select name="lop">
+            <option th:each="lop : ${sv.lop}" th:value="${sv.lop}" th:text="${sv.lop}"></option>
+        </select>
+        <br>
+        MSSV: <input type="text" name="mssv"><br>
+        <br><button>Submit</button>
+    </form>
+    <h3>Find SV</h3>
+    <form action="/prac1/search" method="get">
+        <input type="text" name="ten">
+        <br><button>Submit</button>
+    </form>
+    <h3>Index SV</h3>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Ten</th>
+            <th>Tuoi</th>
+            <th>Gioi tinh</th>
+            <th>Lop</th>
+            <th>MSSV</th>
+            <th>Hanh dong</th>
+        </thead>
+        <tbody>
+            <th:block th:each="sv : ${svList}">
+                <tr th:object="${sv}">
+                    <td th:text="*{id}"></td>
+                    <td th:text="*{ten}"></td>
+                    <td th:text="*{tuoi}"></td>
+                    <td th:text="*{gioiTinh == true ? 'Nam' : 'Nu'}"></td>
+                    <td th:text="*{lop}"></td>
+                    <td th:text="*{mssv}"></td>
+                    <td>
+                        <a th:href="@{|/prac1/view-update/*{id}|}">update</a>
+                        <a th:href="@{|/prac1/delete?id=*{id}|}">delete</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>
