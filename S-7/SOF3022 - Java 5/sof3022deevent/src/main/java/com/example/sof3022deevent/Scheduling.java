@@ -6,9 +6,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
+import java.util.ArrayList;
 
 @Component
 public class Scheduling {
+    @Autowired
+    VeRepo vRepo;
     @Scheduled(fixedRate = 10000)
     public void alerting() {
         System.out.println(Instant.now().toString());
