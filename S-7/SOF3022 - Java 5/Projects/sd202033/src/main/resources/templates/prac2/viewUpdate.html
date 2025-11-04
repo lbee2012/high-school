@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Form update</h3>
+    <form action="/prac2/update" method="post">
+        Ten: <input type="text" name="ten" th:value="${sp.ten}"><br>
+<!--        Loai-->
+<!--        <select name="loai">-->
+<!--            <option th:each="sp : ${spList}" th:value="${sp.loai}" th:text="${sp.loai}" th:selected="${sp.loai}"></option>-->
+<!--        </select>-->
+        Loai: <input type="text" name="loai" th:value="${sp.loai}"><br>
+        So luong: <input type="text" name="soLuong" th:value="${sp.soLuong}"><br>
+        Con hang:
+        Con <input type="radio" name="conHang" value="true" th:checked="${sp.conHang}">
+        Het <input type="radio" name="conHang" value="false" th:checked="${!sp.conHang}">
+        <br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

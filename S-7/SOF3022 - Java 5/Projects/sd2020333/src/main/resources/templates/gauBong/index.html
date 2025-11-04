@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>add gb</h3>
+    <form action="/gau-bong/add" method="post">
+        Ten: <input type="text" name="ten"><br>
+        Chieu dai: <input type="text" name="chieuDai"><br>
+        Chieu cao: <input type="text" name="chieuCao"><br>
+        Dep ko
+        Dep <input type="radio" name="dep" value="true">
+        Ko <input type="radio" name="dep" value="false">
+        <br>
+        <button>submit</button>
+    </form>
+    <h3>index gb</h3>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Ten</th>
+            <th>Chieu dai</th>
+            <th>Chieu cao</th>
+            <th>Dep</th>
+            <th>Hanh dong</th>
+        </thead>
+        <tbody>
+            <th:block th:each="gb : ${listGB}">
+                <tr th:object="${gb}">
+                    <td th:text="*{id}"></td>
+                    <td th:text="*{ten}"></td>
+                    <td th:text="*{chieuDai}"></td>
+                    <td th:text="*{chieuCao}"></td>
+                    <td th:text="*{dep == true ? 'Dep' : 'Ko'}"></td>
+                    <td>
+                        <a th:href="@{|/gau-bong/update/*{id}|}">update</a>
+                        <a th:href="@{|/gau-bong/delete?id=*{id}|}">delete</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>

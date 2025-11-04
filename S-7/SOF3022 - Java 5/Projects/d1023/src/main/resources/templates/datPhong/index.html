@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>add</h3>
+    <form action="/dat-phong/add" method="post" th:object="${dp}">
+        Ten khach hang: <input type="text" th:field="*{tenKhachHang}"><i th:errors="*{tenKhachHang}"></i><br>
+        So dem dat: <input type="text" th:field="*{soDemDat}"><i th:errors="*{soDemDat}"></i><br>
+        Trang thai:
+        Da thanh toan <input type="radio" th:field="*{trangThai}" value="true">
+        Chua thanh toan <input type="radio" th:field="*{trangThai}" value="false">
+        <i th:errors="*{trangThai}"></i><br>
+        Phong:
+        <select th:field="*{p}">
+            <option value="">select an option</option>
+            <th:block th:each="p: ${pList}">
+                <option th:value="${p.id}" th:text="${p.tenPhong}"></option>
+            </th:block>
+        </select>
+        <i th:errors="*{p}"></i><br>
+        <br><button>submit</button>
+    </form>
+    <h3>search</h3>
+    <form action="/dat-phong/search" method="get">
+<!--        Ten khach hang: <input type="text" name="tenKhachHang" placeholder="nhap ten khach hang can tim"><br>-->
+        Min: <input type="text" name="min"><br>
+        Max: <input type="text" name="max"><br>
+        <br><button>submit</button>
+    </form>
+    <h3>index</h3>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Khach hang</th>
+            <th>So dem dat</th>
+            <th>Trang thai</th>
+            <th>Phong</th>
+            <th>Hanh dong</th>
+        </thead>
+        <tbody>
+            <th:block th:each="dp: ${dpList}">
+                <tr th:object="${dp}">
+                    <td th:text="*{id}"></td>
+                    <td th:text="*{tenKhachHang}"></td>
+                    <td th:text="*{soDemDat}"></td>
+                    <td th:text="*{trangThai == true ? 'Da thanh toan' : 'Chua thanh toan'}"></td>
+                    <td th:text="*{p.tenPhong}"></td>
+                    <td>
+                        <a th:href="@{|/dat-phong/update/*{id}|}">update</a>
+                        <a th:href="@{|/dat-phong/delete?id=*{id}|}">delete</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+    <a th:href="@{|/dat-phong/page|}">go page here!</a>
+</body>
+</html>
