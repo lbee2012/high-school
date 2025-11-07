@@ -7,20 +7,20 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Stream;
 
-@Service
+@Service("auth")
 public class AuthService {
     public Authentication getAuth() {
         return SecurityContextHolder.getContext().getAuthentication();
     }
 
-    public String getUesrname() {
+    public String getUsername() {
         return this.getAuth().getName();
     }
     public List<String> getRoles() {
         return this.getAuth().getAuthorities().stream().map(auth -> auth.getAuthority().substring(5)).toList();
     }
     public boolean isAuthenticated() {
-        String username = this.getUesrname();
+        String username = this.getUsername();
         return (username != null && !username.equals("anonymousUser"));
     }
     public boolean hasAnyRole(String... roles) {
