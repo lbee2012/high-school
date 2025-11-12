@@ -11,7 +11,7 @@
             <li>Role: <b th:text="${@auth.roles}"></b></li>
             <li><a href="/logout">sign-out</a></li>
             <li th:if="${@auth.hasAnyRole('ADMIN')}">
-                <a href="/">administration dashboard</a>
+                <a href="/static">administration dashboard</a>
             </li>
         </ul>
         <ul th:case="false">

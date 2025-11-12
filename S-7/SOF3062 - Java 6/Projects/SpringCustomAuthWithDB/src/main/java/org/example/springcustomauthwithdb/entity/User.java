@@ -22,5 +22,5 @@ public class User {
     Boolean enabled;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    List<UserRole> userRoles;
+    List<UserRole> userRole;
 }

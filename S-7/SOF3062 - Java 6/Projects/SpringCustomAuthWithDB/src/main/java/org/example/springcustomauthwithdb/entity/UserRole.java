@@ -18,10 +18,10 @@ public class UserRole {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "username", referencedColumnName = "username", nullable = false)
+    @JoinColumn(name = "Username", referencedColumnName = "Username", nullable = false)
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "roleid", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "RoleId", referencedColumnName = "Id", nullable = false)
     private Role role;
 }

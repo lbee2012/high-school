@@ -18,22 +18,22 @@ public class AuthController {
     }
     @RequestMapping("/poly/url1")
     public String method1(Model model) {
-        model.addAttribute("message", "@/poly/url1 => method0");
+        model.addAttribute("message", "@/poly/url1 => method1");
         return "/home";
     }
     @RequestMapping("/poly/url2")
     public String method2(Model model) {
-        model.addAttribute("message", "@/poly/url2 => method0");
+        model.addAttribute("message", "@/poly/url2 => method2");
         return "/home";
     }
     @RequestMapping("/poly/url3")
     public String method3(Model model) {
-        model.addAttribute("message", "@/poly/url3 => method0");
+        model.addAttribute("message", "@/poly/url3 => method3");
         return "/home";
     }
     @RequestMapping("/poly/url4")
     public String method4(Model model) {
-        model.addAttribute("message", "@/poly/url4 => method0");
+        model.addAttribute("message", "@/poly/url4 => method4");
         return "/home";
     }
 }

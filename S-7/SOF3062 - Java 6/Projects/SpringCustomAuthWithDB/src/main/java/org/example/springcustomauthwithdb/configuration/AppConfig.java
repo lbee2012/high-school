@@ -1,5 +1,6 @@
 package org.example.springcustomauthwithdb.configuration;
 
+import org.example.springcustomauthwithdb.service.DaoUserDetailsManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -14,10 +15,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class AppConfig {
-    private final UserDetailsService userDetailsService;
+    protected final DaoUserDetailsManager daoUserDetailsManager;
 
-    public AppConfig(UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
+    public AppConfig(DaoUserDetailsManager daoUserDetailsManager) {
+        this.daoUserDetailsManager = daoUserDetailsManager;
     }
 
     @Bean
@@ -35,7 +36,6 @@ public class AppConfig {
                 .formLogin(Customizer.withDefaults())
                 .rememberMe(r -> r
                         .tokenValiditySeconds(5*24*60*60)
-                        .userDetailsService(userDetailsService)
                 );
         return http.build();
     }
