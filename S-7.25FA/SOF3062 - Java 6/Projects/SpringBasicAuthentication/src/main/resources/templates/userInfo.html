@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>user's information</title>
+</head>
+<body>
+    <div th:switch="${@auth.authenticated}">
+        <ul th:case="true">
+            <li>Username: <b th:text="${@auth.username}"></b></li>
+            <li>Role: <b th:text="${@auth.roles}"></b></li>
+            <li><a href="/log-out">sign-out</a></li>
+            <li th:if="${@auth.hasAnyRole('ADMIN')}">
+                <a href="/">administration dashboard</a>
+            </li>
+        </ul>
+        <ul th:case="false">
+            <li>Ban chua dang nhap</li>
+        </ul>
+    </div>
+</body>
+</html>
