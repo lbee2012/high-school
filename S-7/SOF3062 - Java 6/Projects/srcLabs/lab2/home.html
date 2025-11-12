@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+    <a href="/static">home page</a><br>
+    <a href="/poly/url0">url0</a> |
+    <a href="/poly/url1">url1</a> |
+    <a href="/poly/url2">url2</a> |
+    <a href="/poly/url3">url3</a> |
+    <a href="/poly/url4">url4</a>
+    <hr>
+    <h1>Page: <b th:text="${message}"></b></h1>
+    <div th:replace="~{/userInfo.html}"></div>
+</body>
+</html>
