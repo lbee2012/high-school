@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 public class AuthService {
     public Authentication getAuth() {
         return SecurityContextHolder.getContext().getAuthentication();
-    }git
+    }
     public String getUsername() {
         return this.getAuth().getName();
     }
